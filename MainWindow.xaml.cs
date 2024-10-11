@@ -59,7 +59,7 @@ namespace LanMay_Launcher
             };
             var launch = new MinecraftLauncher(args); // 实例化启动器
             var la = await launch.LaunchAsync(ReportProgress); // 启动
-
+            //kh
             // 日志输出
             la.ErrorReceived += (output) => Console.WriteLine($"{output}");
             la.OutputReceived += (output) => Console.WriteLine($"{output}");
