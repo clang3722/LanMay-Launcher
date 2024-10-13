@@ -14,7 +14,6 @@ Global
 		{C7C95AF1-20CE-4655-9201-EEF5A9CA5DBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C7C95AF1-20CE-4655-9201-EEF5A9CA5DBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7C95AF1-20CE-4655-9201-EEF5A9CA5DBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C7C95AF1-20CE-4655-9201-EEF5A9CA5DBA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

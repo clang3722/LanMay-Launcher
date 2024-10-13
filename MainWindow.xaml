@@ -4,8 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LanMay_Launcher"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="LanMay_Launcher"
+        Height="450"
+        Width="800"
+        MaxHeight="450"
+        MaxWidth="800"
+        ResizeMode="CanMinimize">
     <Grid HorizontalAlignment="Center" Width="800" Height="430">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0*"/>
@@ -25,7 +31,7 @@
             </TextBox>
         </StackPanel>
         <StackPanel Grid.ColumnSpan="2" Margin="162,115,442,271">
-            <Button Content="打开版本文件夹" Click="Button_Click_1" FontSize="20" Margin="2,3,2,3" HorizontalAlignment="Center" Height="30" Width="158">
+            <Button Content="打开版本文件夹" Click="Button_Click_1" FontSize="20" Margin="2,3,2,3" HorizontalAlignment="Center" Height="35" Width="158">
             </Button>
         </StackPanel>
         <StackPanel Margin="80,306,275,108" Grid.ColumnSpan="2"/>
