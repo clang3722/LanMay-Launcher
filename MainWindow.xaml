@@ -12,32 +12,39 @@
         MaxHeight="450"
         MaxWidth="800"
         ResizeMode="CanMinimize">
-    <Grid HorizontalAlignment="Center" Width="800" Height="430">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0*"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
+    <Grid  HorizontalAlignment="Center" Width="800" Height="430">
+        <Image Stretch="UniformToFill" Source="/image.png"/>
+        <Canvas HorizontalAlignment="Center" Height="205" Margin="0,10,0,0" VerticalAlignment="Top" Width="780" Background="White" Opacity="0.5"/>
+        <Canvas HorizontalAlignment="Left" Width="202" Background="White" Opacity="0.5" Margin="319,330,0,70"/>
         <StackPanel Width="120" Margin="200,30,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Height="68">
-            <TextBlock Text="游戏版本" FontSize="25" Margin="2,3,2,3" HorizontalAlignment="Center"></TextBlock>
+            <TextBlock Text="游戏版本" FontSize="25" Margin="2,3,2,3" HorizontalAlignment="Center"/>
             <ComboBox x:Name="GameVersion" FontSize="15" Width="120" Height="30"/>
         </StackPanel>
         <StackPanel Width="120" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Height="68" Margin="360,30,0,0">
             <TextBlock Text="Java版本" FontSize="25" Margin="2,3,2,3" HorizontalAlignment="Center"/>
             <ComboBox x:Name="JavaPath" FontSize="15" Width="120" Height="30"/>
         </StackPanel>
-        <StackPanel Width="120" Margin="30,30,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="68">
-            <TextBlock Text="账户名称" FontSize="25" HorizontalAlignment="Center" Margin="2,3,2,3"></TextBlock>
-            <TextBox x:Name="PlayerName" FontSize="15" Height="30">
-            </TextBox>
+        <StackPanel Width="120" Margin="30,112,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="68">
+            <TextBlock x:Name="PlayerNameText" Text="账户名称" FontSize="25" HorizontalAlignment="Center" Margin="2,3,2,3"/>
+            <TextBox x:Name="PlayerName" FontSize="15" Height="30"/>
+        </StackPanel>
+        <StackPanel Margin="30,30,0,0" Width="120" Height="72" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <TextBlock Text="登录方式" FontSize="25" HorizontalAlignment="Center" Margin="2,3,2,3"/>
+            <ComboBox x:Name="LoginMode" SelectionChanged="LoginMode_SelectionChanged" Height="30" Width="120">
+                <ComboBoxItem Content="正版登录"/>
+                <ComboBoxItem Content="离线登录"/>
+            </ComboBox>
         </StackPanel>
         <StackPanel Grid.ColumnSpan="2" Margin="162,115,442,271">
-            <Button Content="打开版本文件夹" Click="Button_Click_1" FontSize="20" Margin="2,3,2,3" HorizontalAlignment="Center" Height="35" Width="158">
+            <Button Content="打开版本文件夹" Click="Button_Click_1" FontSize="20" Margin="2,3,2,3" HorizontalAlignment="Center" Height="35" Width="158"/>
+        </StackPanel>
+        <StackPanel Margin="181,164,461,231" Width="158" Height="35">
+            <Button Content="打开背景文件夹" Click="Button_Click_2" FontSize="20" HorizontalContentAlignment="Center" Height="35" Width="158">
             </Button>
         </StackPanel>
-        <StackPanel Margin="80,306,275,108" Grid.ColumnSpan="2"/>
         <Button Content="启动游戏" Click="Button_Click" FontSize="40" Width="200" Height="70" HorizontalAlignment="Left" Margin="550,0,50,50" VerticalAlignment="Bottom" Grid.Column="1"/>
-        <TextBlock x:Name="Progress" Width="150" Height="30" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="386,0,0,67" Grid.Column="1"/>
-        <TextBlock Text="内存设置" FontSize="25" Margin="530,33,0,367" HorizontalAlignment="Left" Grid.ColumnSpan="2"></TextBlock>
+        <TextBlock x:Name="Progress" FontSize="20" Width="202" Height="30" Margin="319,330,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock Text="内存设置" FontSize="25" Margin="530,33,0,367" HorizontalAlignment="Left" Grid.ColumnSpan="2"/>
         <Slider x:Name="initMemory" Margin="500,70,66,338" Maximum="100" LargeChange="0" Thumb.DragCompleted="showMemory_DragCompleted" Grid.ColumnSpan="2"/>
         <Label x:Name="showMemory" Content="使用运行内存百分比：0%" FontSize="13" Margin="493,97,10,297" Grid.ColumnSpan="2"  />
     </Grid>
