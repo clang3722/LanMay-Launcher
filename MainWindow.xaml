@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:LanMay_Launcher"
         xmlns:hc="https://handyorg.github.io/handycontrol"
         mc:Ignorable="d"
-        Title="LanMay_Launcher"
+        Title="LML启动器"
         Height="450"
         Width="800"
         MaxHeight="450"

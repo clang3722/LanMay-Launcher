@@ -11,6 +11,7 @@ using System;
 using System.IO;
 using System.Windows.Media.Imaging;
 using System.Windows.Media;
+using Microsoft.Identity.Client;
 
 namespace LanMay_Launcher
 {
@@ -27,6 +28,9 @@ namespace LanMay_Launcher
             GetJavas();
 
             LoginMode.SelectedIndex = 1;
+
+            string directoryPath = "background"; // 初始化创建的文件夹名称
+            CheckAndCreateDirectory(directoryPath);
         }
 
         void GerGameVer()
@@ -49,7 +53,7 @@ namespace LanMay_Launcher
             
             if(LoginMode.SelectedIndex == 0)
             {
-                var auth = new MicrosoftAuthentication("a5631472 - c813 - 4c35 - 987d - b6e728964cb2");
+                var auth = new MicrosoftAuthentication("e1e383f9-59d9-4aa2-bf5e-73fe83b15ba0");
                 var code = await auth.RetrieveDeviceCodeInfo();
                 Clipboard.Clear();
                 Clipboard.SetText(code.UserCode);
@@ -174,28 +178,17 @@ namespace LanMay_Launcher
             }
         }
         
-        //创建背景图片文件夹
-        public partial class App : Application
-        {
-            protected override void OnStartup(StartupEventArgs e)
-            {
-                base.OnStartup(e);
-
-                string directoryPath = "background"; // 这里填写您想要创建的文件夹名称
-                CheckAndCreateDirectory(directoryPath);
-            }
-
             private void CheckAndCreateDirectory(string directoryPath)
             {
-                string currentDirectory = Environment.CurrentDirectory; // 获取当前应用程序目录
-                string fullPath = Path.Combine(currentDirectory, directoryPath); // 组合成完整路径
+                string currentDirectory = System.IO.Directory.GetCurrentDirectory(); // 获取当前应用程序目录
+                string localPath = Path.Combine(currentDirectory, directoryPath); // 组合成完整路径
 
-                if (!Directory.Exists(fullPath)) // 检查文件夹是否存在
+                if (!Directory.Exists(localPath)) // 检查文件夹是否存在
                 {
-                    Directory.CreateDirectory(fullPath); // 如果不存在，则创建文件夹
+                    Directory.CreateDirectory(localPath); // 如果不存在，则创建文件夹
                 }
             }
-        }
+
 
         //登录
         private void LoginMode_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
