@@ -12,6 +12,7 @@ using System.IO;
 using System.Windows.Media.Imaging;
 using System.Windows.Media;
 using Microsoft.Identity.Client;
+using Microsoft.Win32;
 
 namespace LanMay_Launcher
 {
@@ -29,8 +30,8 @@ namespace LanMay_Launcher
 
             LoginMode.SelectedIndex = 1;
 
-            string directoryPath = "background"; // 初始化创建的文件夹名称
-            CheckAndCreateDirectory(directoryPath);
+            //string directoryPath = "background"; // 初始化创建的文件夹名称
+            //CheckAndCreateDirectory(directoryPath);
         }
 
         void GerGameVer()
@@ -155,27 +156,17 @@ namespace LanMay_Launcher
                 }
         }
 
-        //打开背景文件夹
+
+        //设置背景
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            // 获取当前应用程序的目录
-            string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
-
-            // 构建要打开的文件夹路径
-            string folderPath = Path.Combine(currentDirectory, "background\\"); // 替换为您想要打开的子文件夹名称
-
-            // 使用Process.Start打开文件夹
-            try
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "PNG Images (*.png)|*.png|JPEG Images (*.jpg)|*.jpg";
+            if (openFileDialog.ShowDialog() == true)
             {
-                ProcessStartInfo OpenFiles = new ProcessStartInfo("explorer.exe", $"/select,\"{folderPath}");
-                OpenFiles.UseShellExecute = true;
-                Process.Start(OpenFiles);
-
+                backgroud.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri(openFileDialog.FileName));
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"无法打开文件夹: {ex.Message}");
-            }
+            
         }
         
             private void CheckAndCreateDirectory(string directoryPath)
@@ -188,6 +179,25 @@ namespace LanMay_Launcher
                     Directory.CreateDirectory(localPath); // 如果不存在，则创建文件夹
                 }
             }
+
+        //private void CustomizeBackground_Click(object sender, RoutedEventArgs e)
+        //{
+        //    // 创建一个OpenFileDialog对象
+        //    Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+        //    dlg.DefaultExt = ".jpg";
+        //    dlg.Filter = "JPEG Files (*.jpg)|*.jpg|PNG Files (*.png)|*.png";
+
+        //    // 显示对话框并检查用户是否选择了文件
+        //    if (dlg.ShowDialog() == true)
+        //    {
+        //        // 创建一个ImageBrush对象
+        //        ImageBrush brush = new ImageBrush();
+        //        brush.ImageSource = new System.Windows.Media.Imaging.BitmapImage(new Uri(dlg.FileName));
+
+        //        // 将背景设置为整个窗口
+        //        this.Background = brush;
+        //    }
+        //}
 
 
         //登录

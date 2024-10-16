@@ -13,7 +13,7 @@
         MaxWidth="800"
         ResizeMode="CanMinimize">
     <Grid  HorizontalAlignment="Center" Width="800" Height="430">
-        <Image Stretch="UniformToFill" Source="/image.png"/>
+        <Image x:Name="backgroud" Stretch="UniformToFill" Source="/image.png"/>
         <Canvas HorizontalAlignment="Center" Height="205" Margin="0,10,0,0" VerticalAlignment="Top" Width="780" Background="White" Opacity="0.5"/>
         <Canvas HorizontalAlignment="Left" Width="202" Background="White" Opacity="0.5" Margin="319,330,0,70"/>
         <StackPanel Width="120" Margin="200,30,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Height="68">
